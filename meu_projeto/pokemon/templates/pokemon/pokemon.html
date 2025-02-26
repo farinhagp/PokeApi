@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Pokémon</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        img { width: 150px; height: auto; }
+    </style>
+</head>
+<body>
+    <h1>Busque um Pokémon</h1>
+    <form method="GET">
+        <input type="text" name="nome" placeholder="Digite o nome..." required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if pokemon %}
+        <h2>{{ pokemon.nome }}</h2>
+        <img src="{{ pokemon.imagem }}" alt="{{ pokemon.nome }}">
+        <p><strong>Altura:</strong> {{ pokemon.altura }}</p>
+        <p><strong>Peso:</strong> {{ pokemon.peso }}</p>
+        <p><strong>Tipos:</strong> {{ pokemon.tipos|join:", " }}</p>
+    {% else %}
+        <p style="color: red;">Pokémon não encontrado!</p>
+    {% endif %}
+</body>
+</html>
